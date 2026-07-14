@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Fine Checker</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+
+        <h2>Speed Fine Checker</h2>
+
+        <input type="number" name="" id="speed" placeholder="Enter Speed">
+
+        <button onclick="checkfine()">Check Fine</button>
+
+        <h3 id="result"></h3>
+
+    </div>
+
+    <script>
+
+        function checkfine() {
+
+            let speed = Number(document.getElementById("speed").value);
+            let result = document.getElementById("result");
+
+            if (document.getElementById("speed").value=== ""||speed < 0 || speed > 300) {
+                result.innerHTML = "Please Enter a Valid Speed";
+                result.style.color = "red";
+
+            if (speed === "" || isNaN(speed) || speed < 0 || speed > 300) {
+                result.innerHTML = "please Enter a Valid Speed";
+            }
+            else if (speed > 120) {
+                result.innerHTML = "License Suspended";
+                result.style.color = "darkred";
+            }
+            else if (speed > 100) {
+                result.innerHTML = "Fine: Rs. 5000";
+                result.style.color = "red";
+            }
+            else if (speed > 80) {
+                result.innerHTML = "Fine: Rs. 2000";
+                result.style.color = "orange";
+            }
+            else if (speed > 60) {
+                result.innerHTML = "Warning! Drive Carefully";
+                result.style.color = "#ff9800";
+            }
+            else {
+                result.innerHTML = "Safe Driving";
+                result.style.color = "green";
+            }
+        }
+
+
+    </script>
+</body>
+</html>
